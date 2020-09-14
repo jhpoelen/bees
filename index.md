@@ -33,11 +33,7 @@ http://localhost:4000
   {%- assign records = site.pages | where: "layout", "record" -%}
   {%- for record in records -%}
   <div style="display: flex; flex-align: column; border: solid;">
-  <a href="{{ record.idigbio.uuid }}">iDigBio Specimen Record {{ record.idigbio.uuid | slice: 0,7 }}</a>
-  {%-   for uuid in record.idigbio.indexTerms.mediarecords -%}
-  {%-     assign mediarecord = site.pages | where: "id", uuid | first -%}
-  {%      include media.html mediarecord=mediarecord.idigbio %}
-  {%-   endfor -%}
+    {%- include record.html record=record -%}
   </div>
   {%- endfor -%}
 
