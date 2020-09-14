@@ -9,7 +9,7 @@ The following table was created by:
 ```
 jekyll new [site_dir] --blank
 ```
-1. archiving (meta-)data and media of an iDigBio registered [UAM Insect Collection (Arctos)](https://www.idigbio.org/portal/recordsets/eaa5f19e-ff6f-4d09-8b55-4a6810e77a6c) running 
+1. archiving (meta-)data and media of associated with an iDigBio search for first 10 Andrenidae records that have images associated to them: 
 ```
 cd [site_dir]
 preston track "https://search.idigbio.org/v2/search/records/?rq=%7B%22family%22%3A%22Andrenidae%22%2c%22hasImage%22%3A%22true%22%7D&limit=10&offset=0"
