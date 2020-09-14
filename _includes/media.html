@@ -1,7 +1,10 @@
 <div style="display: flex; flex-direction: column; border: solid; border-style: top;">
-  <div style="display: flex; justify-content: center;">
-    {% assign mediarecord_online = include.mediarecord.uuid | prepend: "https://www.idigbio.org/portal/mediarecords/" %}
-      <a href="{{ include.mediarecord.uuid }}">iDigBio Media Record urn:uuid:{{ .include.mediarecord.uuid }}</a>
+  Media Record
+  <div style="display: flex;">
+    <a href="{{ include.mediarecord.uuid }}">{%- include uuid.html url=site.url uuid=include.mediarecord.uuid -%}</a>
+  </div>
+  <div style="display: flex;">
+    <a href="{{ include.mediarecord.uuid | prepend: "https://www.idigbio.org/portal/mediarecords/" }}">{%- include uuid.html url="idigbio.org" uuid=include.mediarecord.uuid -%}</a>
   </div>
   <div style="display: flex; justify-content: space-evenly;">
     <div>
