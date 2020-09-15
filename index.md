@@ -5,7 +5,7 @@ layout: default
 
 Cite this data archive using:
 
-{{ prepend: site.baseurl | prepend: site.url }}: a Biodiversity Archive. <span id="year"/>. {{ site.data.history | reverse | last | map: "hash" }}
+A biodiversity dataset graph: {{ site.baseurl | prepend: site.url }} . <span id="year"/>. {{ site.data.history | reverse | last | map: "hash" }}
 
 ## Welcome to Content-based iDigBio! 
 
