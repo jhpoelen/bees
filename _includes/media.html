@@ -16,4 +16,5 @@
         {% include media_frag.html origin=original_online %}
     </div>
   </div>
+  <div id="{{ include.mediarecord.data | jsonify | uri_escape }}" class="meta"></div>
 </div>

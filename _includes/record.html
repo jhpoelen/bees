@@ -5,6 +5,7 @@
     <div>
       <a href="{{ include.record.idigbio.uuid | prepend: "https://www.idigbio.org/portal/records/" }}">{%- include uuid.html url="idigbio.org" uuid=include.record.idigbio.uuid -%}</a>
     </div>
+    <div id="{{ include.record.idigbio.data | jsonify | uri_escape }}" class="meta"></div>
   </div>
   <div>
   {%-   for uuid in include.record.idigbio.indexTerms.mediarecords -%}

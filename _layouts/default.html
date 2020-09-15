@@ -17,12 +17,13 @@
       year.textContent=new Date().getFullYear();
     }
 
-    var metaElem = document.getElementById("idigbio-meta");
-    if (metaElem) {
-      var obj = JSON.parse(decodeURIComponent("{{ page.idigbio | jsonify | uri_escape }}"));
-      var pretty_json = JSON.stringify(obj, null, 2);  // Pretty-printed JSON (indented 4 spaces).
+    document.querySelectorAll(".meta").forEach(function(metaElem) {
+      var uuid = metaElem.getAttribute("id");
+      var obj = JSON.parse(decodeURIComponent(uuid));
+      var pretty_json = JSON.stringify(obj, null, 2);  // Pretty-printed JSON (indented 2 spaces).
       metaElem.textContent = pretty_json;
-    }
+      metaElem.style = "white-space: pre-line; white-space: pre-wrap;";
+    });
   </script>
 
 </html>
