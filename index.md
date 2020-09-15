@@ -21,7 +21,7 @@ This automatically generated website contains a versioned archive of a custom se
 
 <a href="assets/preston.dot.png"><img src="assets/preston.dot.png" style="height: 30em;"/></a>
 
-### Steps to Archive iDigBio-indexed Content
+### Steps to archive iDigBio-indexed content
 
 This biodiversity data archive website was created with the following steps:
 
@@ -50,7 +50,7 @@ preston clone "{{ "/data" | prepend: site.baseurl | prepend: site.url }}"
 Also, you can query the idigbio records available through this site via the api at <a href="{{ endpoint }}">{{ endpoint }}</a>. With this, you can programmatically access the data and select the records you are interested in. For instance, you can show the first record by executing: 
 
 ```
-$ curl "{{ endpoint }}" | head -n1 
+$ curl "{{ endpoint }}" | jq -c 'select(.type == "records")' 
 {{ site.pages | where: "layout", "record" | first | jsonify | strip_newlines }} 
 
 ```
