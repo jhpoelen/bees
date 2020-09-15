@@ -12,9 +12,17 @@
   </body>
 
   <script>
-    var obj = JSON.parse(decodeURIComponent("{{ page.idigbio | jsonify | uri_escape }}"));
-    var pretty_json = JSON.stringify(obj, null, 2);  // Pretty-printed JSON (indented 4 spaces).
-    document.getElementById("idigbio-meta").textContent = pretty_json;
+    var year = document.getElementById("year");
+    if (year) {
+      year.textContent=new Date().getFullYear();
+    }
+
+    var metaElem = document.getElementById("idigbio-meta");
+    if (metaElem) {
+      var obj = JSON.parse(decodeURIComponent("{{ page.idigbio | jsonify | uri_escape }}"));
+      var pretty_json = JSON.stringify(obj, null, 2);  // Pretty-printed JSON (indented 4 spaces).
+      metaElem.textContent = pretty_json;
+    }
   </script>
 
 </html>

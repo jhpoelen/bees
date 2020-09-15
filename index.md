@@ -3,6 +3,10 @@ layout: default
 ---
 {%- assign endpoint= "/data.json" | prepend: site.baseurl | prepend: site.url -%}
 
+Cite this data archive using:
+
+{{ prepend: site.baseurl | prepend: site.url }}: a Biodiversity Archive. <span id="year"/>. {{ site.data.history | reverse | last | map: "hash" }}
+
 ## Welcome to Content-based iDigBio! 
 
 Are you looking for a way to have fast, local access to iDigBio indexed records?
