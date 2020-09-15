@@ -3,15 +3,15 @@ layout: default
 ---
 {%- assign endpoint= "/data.json" | prepend: site.baseurl | prepend: site.url -%}
 
-Cite this data archive using:
-
-A biodiversity dataset graph: {{ site.baseurl | prepend: site.url }} . <span id="year"/>. {{ site.data.history | reverse | last | map: "hash" }}
+A biodiversity dataset graph: {{ site.baseurl | prepend: site.url }} . <span id="year"/>. {{ site.data.history | last | map: "hash" }}
 
 ## Welcome to Content-based iDigBio! 
 
 Are you looking for a way to have fast, local access to iDigBio indexed records and media?
 
 Would you like to have an *exact* copy of the images in your research dataset? 
+
+Do you want to include latest research data while keeping your original data around?
 
 Would you like to help preserve some (or all) of iDigBio's images and their associated specimen data?
 
@@ -21,7 +21,7 @@ This automatically generated website contains a versioned archive of a custom se
 
 <a href="assets/preston.dot.png"><img src="assets/preston.dot.png" style="height: 30em;"/></a>
 
-### Steps to archive iDigBio-indexed content
+### Archive iDigBio-indexed content
 
 This biodiversity data archive website was created with the following steps:
 
@@ -32,7 +32,7 @@ jekyll new [site_dir] --blank
 cd [site_dir]
 
 # archive 10 iDigBio indexed Andrenidae records and related images
-preston track "https://search.idigbio.org/v2/search/records/?rq=%7B%22family%22%3A%22Andrenidae%22%2c%22hasImage%22%3A%22true%22%7D&limit=10&offset=0" 
+preston track "{{ site.data.content | first | map: "url" }}" 
 
 # generate Jekyll site for archived content
 preston copyTo --type jekyll . 
@@ -41,11 +41,15 @@ preston copyTo --type jekyll .
 jekyll s 
 ``` 
 
+### Clone data
+
 You can clone an exact copy of the entire biodiversity data archive using:
 
 ```
 preston clone "{{ "/data" | prepend: site.baseurl | prepend: site.url }}"
 ```
+
+### Programmatic access
 
 Also, you can query the idigbio records available through this site via the api at <a href="{{ endpoint }}">{{ endpoint }}</a>. With this, you can programmatically access the data and select the records you are interested in. For instance, you can show the first record by executing: 
 
@@ -59,6 +63,20 @@ Or, use [jq](https://stedolan.github.io/jq) to select the records with scientifi
 
 ```
 curl -s "{{ endpoint }}" | jq -c 'select(.data["dwc:scientificName"] == "Liphanthus sabulosus")' 
+```
+
+### Updating
+
+Many natural history collections are actively digitizing their collections. These collections are actively indexed by iDigBio as the new data records and media become available. This website can be updated to incorporate newly added or updated data by:
+
+```
+cd [site_dir]
+
+# archive records and related images with criteria specified in the iDigBio search API
+preston update "{{ site.data.content | first | map: "url" }}"
+
+# update Jekyll site with archived content
+preston copyTo --type jekyll .
 ```
 
 ### What is in this archive?
