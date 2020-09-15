@@ -1,6 +1,5 @@
 ---
 ---
-{%- assign datapages = site.pages | where_exp: "page", "page.layout == 'record' or page.layout == 'mediarecord'" -%}
 {%- for page in datapages -%}
 {{ page.idigbio | jsonify | strip_newlines }}
-{% endfor %}
+{%- endfor -%}
