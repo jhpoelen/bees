@@ -51,7 +51,7 @@ Also, you can query the idigbio records available through this site via the api 
 
 ```
 $ curl "{{ endpoint }}" | jq -c 'select(.type == "records")' 
-{{ site.pages | where: "layout", "record" | first | jsonify | strip_newlines }} 
+{{ site.pages | where: "layout", "record" | first | map: "idigbio" | jsonify | strip_newlines }} 
 
 ```
 
