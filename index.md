@@ -51,11 +51,11 @@ Also, you can query the idigbio records available through this site via the api 
 
 ```
 $ curl "{{ endpoint }}" | head -n1 
-{{ site.pages | where_exp: "page", "page.layout == 'record' or page.layout == 'mediarecord'" | first | jsonify | strip_newlines }}
+site.pages | where_exp: "page", "page.layout == 'record' or page.layout == 'mediarecord'" | first | jsonify | strip_newlines 
 
 ```
 
-Or, use [jq](https://stedolan.github.io/jq) to select the records with scientific name matching **Liphanthus sabulosus** :
+Or, use [jq](https://stedolan.github.io/jq) to select the records with scientific name matching _Liphanthus sabulosus_:
 
 ```
 curl -s "{{ endpoint }}" | jq -c 'select(.data["dwc:scientificName"] == "Liphanthus sabulosus")' 
