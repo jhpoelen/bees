@@ -51,7 +51,7 @@ Also, you can query the idigbio records available through this site via the api 
 
 ```
 $ curl "{{ endpoint }}" | head -n1 
-site.pages | where_exp: "page", "page.layout == 'record' or page.layout == 'mediarecord'" | first | jsonify | strip_newlines 
+{{ site.pages | where_exp: "page", "page.layout == 'record' or page.layout == 'mediarecord'" | first | jsonify | strip_newlines }} 
 
 ```
 
