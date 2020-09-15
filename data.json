@@ -1,5 +1,10 @@
 ---
 ---
-{%- for page in datapages -%}
+{%- assign records = site.pages | where: "layout", "record" -%}
+{%- for page in records -%}
+{{ page.idigbio | jsonify | strip_newlines }}
+{%- endfor -%}
+{%- assign records = site.pages | where: "layout", "mediarecord" -%}
+{%- for page in records -%}
 {{ page.idigbio | jsonify | strip_newlines }}
 {%- endfor -%}
