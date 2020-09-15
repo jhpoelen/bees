@@ -9,9 +9,9 @@ Cite this data archive using:
 
 ## Welcome to Content-based iDigBio! 
 
-Are you looking for a way to have fast, local access to iDigBio indexed records?
+Are you looking for a way to have fast, local access to iDigBio indexed records and media?
 
-Would you like to have an *exact* copy of the images of your research dataset? 
+Would you like to have an *exact* copy of the images in your research dataset? 
 
 Would you like to help preserve some (or all) of iDigBio's images and their associated specimen data?
 
@@ -23,7 +23,7 @@ This automatically generated website contains a versioned archive of a custom se
 
 ### Steps to Archive iDigBio-indexed Content
 
-More specifically, this website was created using:
+This biodiversity data archive website was created with the following steps:
 
 ```
 # first, create a new blank jekyll site
