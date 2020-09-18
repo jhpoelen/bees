@@ -1,5 +1,6 @@
 ---
 layout: default
+id: A biodiversity dataset graph
 ---
 {%- assign endpoint= "/data.json" | prepend: site.baseurl | prepend: site.url -%}
 
